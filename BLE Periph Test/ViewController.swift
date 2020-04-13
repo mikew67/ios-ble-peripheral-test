@@ -45,13 +45,14 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate {
         addServices()
     }
     
-    // private let value = "AD34E"
-    // var service = CBUUID(string: "C019")     // TCN Coalition Service UUID
-    var service = CBUUID(string: "1810")     // Blood Pressure Service UUID
+    // var service = CBUUID(string: "AD34")     // Random 16-bit Service UUID
+    // var service = CBUUID(string: "F5A1287E-227D-4C9E-AD2C-11D0FD6ED640")       // Random 128-bit Service UUID
+    var service1 = CBUUID(string: "C019")     // TCN Coalition Service UUID
+    var service2 = CBUUID(string: "1810")     // Blood Pressure Service UUID
 
     
     func addServices() {
-        print("Service UUID = \(service.uuidString)")
+
         let valueData = "Creating iOS app as BLE Peripheral".data(using: .utf8)
         
         // 1. Create instances of CBMutableCharacteristic
@@ -68,17 +69,20 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate {
                    permissions: [.readable])
         
         // 2. Create instance of CBMutableService
-        service = CBUUID(nsuuid: UUID())
-        // print("TY:\(type(of:(service.debugDescription)))\n")
-        print("Service Desc:\(service.description  )\n")
-        print("Service Debug Desc:\(service.debugDescription)\n")
-        let myService = CBMutableService(type: service, primary: true)
-        
+        print("Service1 UUID = \(service1.uuidString)")
+        print("Service1 Desc = \(service1.description)")
+        print("Service2 UUID = \(service2.uuidString)")
+        print("Service2 Desc = \(service2.description)\n")
+
+        let myService1 = CBMutableService(type: service1, primary: true)
+        let myService2 = CBMutableService(type: service2, primary: false)
+
         // 3. Add characteristics to the service
-        myService.characteristics = [myChar1, myChar2]
+        myService1.characteristics = [myChar1, myChar2]
         
         // 4. Add service to peripheralManager
-        periphMgr.add(myService)
+        periphMgr.add(myService1)
+        periphMgr.add(myService2)
 
 
         
@@ -88,11 +92,12 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate {
     
     func startAdvertising() {
         // Verify that the peripheral manager object is powered on
-        periphMgr.state == CBManagerState.poweredOn
+        // periphMgr.state == CBManagerState.poweredOn
         messageLabel.text = "Advertising Data"
         periphMgr.startAdvertising([
-            CBAdvertisementDataLocalNameKey: "BLETestPeriph",
-            CBAdvertisementDataServiceUUIDsKey: [service]])
+            CBAdvertisementDataLocalNameKey: "BLETestPerip60123",
+            CBAdvertisementDataServiceUUIDsKey: [service1, service2]
+        ])
         print("Started Advertising")
     }
 }
