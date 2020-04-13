@@ -13,6 +13,7 @@
 		27A8CDFC2444186A00CEDE0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27A8CDFA2444186A00CEDE0E /* Main.storyboard */; };
 		27A8CDFE2444186E00CEDE0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27A8CDFD2444186E00CEDE0E /* Assets.xcassets */; };
 		27A8CE012444186E00CEDE0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27A8CDFF2444186E00CEDE0E /* LaunchScreen.storyboard */; };
+		27A8CE0B2444268000CEDE0E /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 27A8CE0A2444268000CEDE0E /* ExternalAccessory.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		27A8CDFD2444186E00CEDE0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27A8CE002444186E00CEDE0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27A8CE022444186E00CEDE0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27A8CE082444265800CEDE0E /* BLE Periph Test.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "BLE Periph Test.entitlements"; sourceTree = "<group>"; };
+		27A8CE0A2444268000CEDE0E /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27A8CE0B2444268000CEDE0E /* ExternalAccessory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +46,7 @@
 			children = (
 				27A8CDF32444186A00CEDE0E /* BLE Periph Test */,
 				27A8CDF22444186A00CEDE0E /* Products */,
+				27A8CE092444268000CEDE0E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,6 +61,7 @@
 		27A8CDF32444186A00CEDE0E /* BLE Periph Test */ = {
 			isa = PBXGroup;
 			children = (
+				27A8CE082444265800CEDE0E /* BLE Periph Test.entitlements */,
 				27A8CDF42444186A00CEDE0E /* AppDelegate.swift */,
 				27A8CDF62444186A00CEDE0E /* SceneDelegate.swift */,
 				27A8CDF82444186A00CEDE0E /* ViewController.swift */,
@@ -65,6 +71,14 @@
 				27A8CE022444186E00CEDE0E /* Info.plist */,
 			);
 			path = "BLE Periph Test";
+			sourceTree = "<group>";
+		};
+		27A8CE092444268000CEDE0E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				27A8CE0A2444268000CEDE0E /* ExternalAccessory.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,6 +298,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "BLE Periph Test/BLE Periph Test.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L3A48G75U2;
 				INFOPLIST_FILE = "BLE Periph Test/Info.plist";
@@ -302,6 +317,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "BLE Periph Test/BLE Periph Test.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L3A48G75U2;
 				INFOPLIST_FILE = "BLE Periph Test/Info.plist";
