@@ -46,9 +46,9 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate {
     }
     
     // var service = CBUUID(string: "AD34")     // Random 16-bit Service UUID
-    // var service = CBUUID(string: "F5A1287E-227D-4C9E-AD2C-11D0FD6ED640")       // Random 128-bit Service UUID
     var service1 = CBUUID(string: "C019")     // TCN Coalition Service UUID
-    var service2 = CBUUID(string: "1810")     // Blood Pressure Service UUID
+    //var service2 = CBUUID(string: "1810")     // Blood Pressure Service UUID
+    var service2 = CBUUID(string: "F5A1287E-227D-4C9E-AD2C-11D0FD6ED640")       // Random 128-bit Service UUID
 
     
     func addServices() {
@@ -95,7 +95,7 @@ class ViewController: UIViewController, CBPeripheralManagerDelegate {
         // periphMgr.state == CBManagerState.poweredOn
         messageLabel.text = "Advertising Data"
         periphMgr.startAdvertising([
-            CBAdvertisementDataLocalNameKey: "BLETestPerip60123",
+            CBAdvertisementDataLocalNameKey: "B",
             CBAdvertisementDataServiceUUIDsKey: [service1, service2]
         ])
         print("Started Advertising")
